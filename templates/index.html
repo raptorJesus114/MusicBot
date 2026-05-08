@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>MusicBot Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #1a1a2e; color: white; font-family: Arial, sans-serif; padding: 40px; }
+        h1 { color: #9B59B6; margin-bottom: 10px; }
+        p { color: #888; margin-bottom: 30px; }
+        .card { background: #16213e; border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+        .card h2 { color: #9B59B6; margin-bottom: 15px; }
+        input { background: #0f3460; border: none; color: white; padding: 10px 15px; border-radius: 5px; width: 300px; margin-right: 10px; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .btn-add { background: #9B59B6; color: white; }
+        .btn-remove { background: #E74C3C; color: white; font-size: 12px; padding: 5px 10px; }
+        .guild { display: flex; justify-content: space-between; align-items: center; background: #0f3460; padding: 10px 15px; border-radius: 5px; margin-bottom: 10px; }
+        .badge { background: #F39C12; color: black; padding: 3px 8px; border-radius: 10px; font-size: 12px; font-weight: bold; }
+        .empty { color: #888; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>🎵 MusicBot Dashboard</h1>
+    <p>Gérer les serveurs premium</p>
+
+    <div class="card">
+        <h2>➕ Ajouter un serveur premium</h2>
+        <form action="/add" method="POST">
+            <input type="text" name="guild_id" placeholder="ID du serveur Discord" required>
+            <button type="submit" class="btn btn-add">Ajouter</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>👑 Serveurs Premium ({{ guilds|length }})</h2>
+        {% if guilds %}
+            {% for guild in guilds %}
+            <div class="guild">
+                <span>🖥️ {{ guild }} <span class="badge">PREMIUM</span></span>
+                <a href="/remove/{{ guild }}"><button class="btn btn-remove">Retirer</button></a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty">Aucun serveur premium pour l'instant...</p>
+        {% endif %}
+    </div>
+</body>
+</html>
