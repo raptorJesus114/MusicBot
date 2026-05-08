@@ -7,7 +7,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
-TOKEN = "MTUwMTQ5NzQ0MzIwMjg5NTkzNA.G6j8XQ.MdMYP_GeahbnalfQCIICXqNz8S-58jpt1yIkL4"
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 intents = discord.Intents.default()
 intents.message_content = True
