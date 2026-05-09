@@ -19,6 +19,7 @@ ytdl_options = {
     'format': 'bestaudio/best',
     'noplaylist': True,
     'quiet': True,
+    'default_search': 'scsearch',
 }
 
 ffmpeg_options = {
