@@ -3,3 +3,4 @@ yt-dlp
 PyNaCl
 flask
 python-dotenv
+imageio-ffmpeg

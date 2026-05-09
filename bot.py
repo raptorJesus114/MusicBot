@@ -24,7 +24,6 @@ ytdl_options = {
 ffmpeg_options = {
     'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
     'options': '-vn -ar 48000 -ac 2',
-    'executable': r'C:\ffmpeg\ffmpeg-master-latest-win64-gpl-shared\bin\ffmpeg.exe'
 }
 
 queues = {}
